@@ -1,3 +1,4 @@
+constants/ApiKeys.js
 node_modules/**/*
 .expo/*
 npm-debug.*
