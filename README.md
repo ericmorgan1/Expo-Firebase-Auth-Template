@@ -1,27 +1,28 @@
-# Expo-Firebase-Auth-Template
-User Authentication template using:
-* React Native
-* Expo (version 37)
-* React Navigation (version 5)
 
-## Features
-* Login/Signup/Forgot Password screens
-* Update Email / Update Password screens
-* 3-tab navigation
 
-## Setup
 
-### Firebase Setup
-1. Create a new project in the Firebase console
-2. Enable email authentication
-3. Get the Firebase config object
+Setup Instructions:
 
-### Template Setup
-1. Go to `/constants/ApiKeys.js` and add your Firebase config data
-2. Go to `/assets/images` and update the icon and splash screen images
-3. Style the screens however you like
+    Firebase Setup:
+    
+    
+    
 
-## Open Issues / Todo Items
-* `EditProfileScreen.js` needs to unsubscribe from watching user data when logging out
-* Implement a "Try as Guest" feature
 
+
+
+Features:
+    User Authentication:
+        - Setup to use Firebase Email Authentication
+        - Signup / Login / Forgot Password screens
+        - Automaticaally detects if user is logged in
+        - Screens for updating email and updating password
+        
+    Navigation:
+        - Tab navigation
+
+
+
+Technical Notes:
+    - Expo Version:     37
+    - Firebase Version: ???
