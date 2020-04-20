@@ -21,6 +21,7 @@ User Authentication template using:
 2. Go to `/assets/images` and update the icon and splash screen images
 3. Style the screens however you like
 
-## Open Issues
+## Open Issues / Todo Items
 * `EditProfileScreen.js` needs to unsubscribe from watching user data when logging out
+* Implement a "Try as Guest" feature
 
