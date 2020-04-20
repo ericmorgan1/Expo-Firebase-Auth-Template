@@ -5,9 +5,9 @@ User Authentication template using:
 * React Navigation (version 5)
 
 ## Features
-* Login/Signup/Forgot Password Screens
-* Update Email / Update Password Screens
-* 3-Tab Navigation
+* Login/Signup/Forgot Password screens
+* Update Email / Update Password screens
+* 3-tab navigation
 
 ## Setup
 
