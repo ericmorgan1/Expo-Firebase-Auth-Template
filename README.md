@@ -8,6 +8,7 @@ User Authentication template using:
 ## Features	
 * Login/Signup/Forgot Password screens	
 * Update Email / Update Password screens	
+* Login as Guest / Convert Guest Account
 * 3-tab navigation	
 
 
