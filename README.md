@@ -34,6 +34,6 @@ User Authentication template using:
 
 ## Screenshots
 
-<img src="__demo/Login.PNG" class="img-fluid" width="225" height="487" alt="">
-<img src="__demo/Signup.PNG" class="img-fluid" width="225" height="487" alt="">
-<img src="__demo/ResetPassword.PNG" class="img-fluid" width="225" height="487" alt="">
+<img src="__demo/Login.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
+<img src="__demo/Signup.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
+<img src="__demo/ResetPassword.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
