@@ -2,8 +2,6 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsScreen, EditProfileScreen, UpdateEmailScreen, UpdatePasswordScreen } from './../screens';
 
-import { Button, Text } from 'react-native';
-
 const stackOptions = () => ({
   headerTitleStyle: { fontWeight: "bold", color: "white", },
   headerBackTitleStyle: { color: "white", },

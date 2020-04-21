@@ -14,6 +14,11 @@ export default class AuthFirebaseApi {
       return firebase.auth().signInWithEmailAndPassword(email, password);
     }
   
+    // Signs user in with anonymous credentials (aka as a Guest)...
+    static signInAnonymously() {
+      return firebase.auth().signInAnonymously();
+    }
+  
     // Sends a password reset email...
     static sendPasswordResetEmail(email) {
       return firebase.auth().sendPasswordResetEmail(email);
@@ -21,13 +26,33 @@ export default class AuthFirebaseApi {
   
     // Creates a user with the given email/password. If sendEmailVerification = true, will send an email verification email
     static createUserWithEmailAndPassword(email, password, sendEmailVerification) {
-        return firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
+        return firebase.auth().createUserWithEmailAndPassword(email, password).then(function(userData) {
+            user = userData.user;
             var p = UserFirebaseApi.updateUserData(user.uid, { email: email });
             if (!sendEmailVerification) { return p; }
   
             // Send the email verification...
             return p.then(function() { return user.sendEmailVerification(); });
         });
+    }
+
+    // Creates a user with the given email/password. Converts their account if they logged in as a guest.
+    static createUserFromAnonymousAccount(email, password, sendEmailVerification) {
+      var isAnonymous = (firebase.auth().currentUser && firebase.auth().currentUser.isAnonymous);
+
+      // If not anonymous, just create an account the normal way...
+      if (!isAnonymous) { return AuthFirebaseApi.createUserWithEmailAndPassword(email, password, sendEmailVerification); }
+
+      // Otherwise, convert the data...
+      var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+      return firebase.auth().currentUser.linkWithCredential(credential).then(function(userData) {
+        user = userData.user;
+        var p = UserFirebaseApi.updateUserData(user.uid, { email: email });
+        if (!sendEmailVerification) { return p; }
+
+        // Send the email verification...
+        return p.then(function() { return user.sendEmailVerification(); });
+      });      
     }
   
     // Returns a promise that allows firebase.auth() to initialize. Good for things that want to wait for the logged in user.
@@ -95,6 +120,14 @@ export default class AuthFirebaseApi {
         }
       }
       return false;
+    }
+    
+    // Returns true if current user is authenticated anonymously (aka a Guest)...
+    static isCurrentUserAnonymouslyAuthenticated() {
+      var user = firebase.auth().currentUser;
+      if (!user) { return false; }
+        
+      return user.isAnonymous;
     }
   
     // Reauthenticates current user (only works if password-authenticated). Returns a promise => p.then(function(){ }).catch(function(error){ });

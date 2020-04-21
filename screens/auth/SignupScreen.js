@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, Alert, ActivityIndicator } from 'react-native';
-import * as firebase from 'firebase';
+import { AuthFirebaseApi } from './../../api';
 import { EmailTextInput, PasswordTextInput } from './../../components/generic/TextInputs';
 
 export default class SignupScreen extends React.Component {
@@ -20,7 +20,7 @@ export default class SignupScreen extends React.Component {
 
         // Create a user...
         this.setState({ isLoading: true });
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        AuthFirebaseApi.createUserWithEmailAndPassword(this.state.email, this.state.password, false)
             .then(() => {
                 this.setState({ isLoading: false });
             }, (error) => {

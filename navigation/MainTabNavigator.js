@@ -1,13 +1,15 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import TabBarIcon from '../components/TabBarIcon';
-import { HomeScreen, TestScreen } from './../screens';
+import { HomeScreen, TestScreen, GuestSignupScreen } from './../screens';
 import SettingsStack from './SettingsStack';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
-export default function MainTabNavigator({ navigation, route }) {
+// These are the main tabs of the application...
+function MainTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
@@ -27,3 +29,16 @@ export default function MainTabNavigator({ navigation, route }) {
     </BottomTab.Navigator>
   );
 }
+
+// Stack so that we can show other modal screens that aren't tabs (like the Guest Signup page)...
+const Stack = createStackNavigator();
+function MainTabStack() {
+    return (
+        <Stack.Navigator mode="modal" headerMode="none">
+            <Stack.Screen name="MainTabs" component={MainTabNavigator} />
+            <Stack.Screen name="GuestSignup" component={GuestSignupScreen} />
+        </Stack.Navigator>
+    );    
+}
+
+export default MainTabStack;

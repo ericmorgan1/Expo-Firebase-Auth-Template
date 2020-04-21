@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { AuthFirebaseApi } from './../api';
+import { GuestLoginBanner } from './../components/auth';
 
 export default class HomeScreen extends React.Component {
     
@@ -8,11 +10,23 @@ export default class HomeScreen extends React.Component {
         super(props);
         this.state = { };
     }
+
+    renderGuestBanner() {
+      const isGuest = AuthFirebaseApi.isCurrentUserAnonymouslyAuthenticated();
+      if (!isGuest) { return <View />; }
+
+      return (
+        <GuestLoginBanner onSignupPress={() => {
+          this.props.navigation.push("GuestSignup");
+        }} />
+      )
+    }
     
     render() {
         return (
           <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                {this.renderGuestBanner()}
                 <View style={{paddingTop: 40 }} />
                 <Text>Home Screen</Text>
             </ScrollView>

@@ -16,7 +16,7 @@ User Authentication template using:
 
 ### Firebase Setup	Setup Instructions:
 1. Create a new project in the Firebase console	
-2. Enable email authentication	
+2. Enable `Email Authentication` and `Anonymous Authentication`
 3. Get the Firebase config object	
 
 
@@ -30,7 +30,7 @@ User Authentication template using:
 
 ## Open Issues / Todo Items	
 * `EditProfileScreen.js` needs to unsubscribe from watching user data when logging out	
-* Implement a "Try as Guest" feature
+* After converting guest account, Guest account banner does not disappear until logging out and back in
 
 ## Screenshots
 

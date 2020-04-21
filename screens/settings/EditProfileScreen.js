@@ -27,7 +27,10 @@ export default class EditProfileScreen extends React.Component {
 
   // Occurs when user data is loaded successfully...
   onLoadUserDataSuccess = (snapshot) => {
+    // Get the user data, or else set it to a blank object...
     var userData = snapshot.val();
+    if (!userData) { userData = { }; }
+
     this.setState({isLoading: false, userData: userData});
   }
 
@@ -90,7 +93,25 @@ export default class EditProfileScreen extends React.Component {
     );
   }
 
+  // Renders the "Update Email" and "Update Password" buttons if user is Email/Password authenticated (so Guest accounts won't see this)...
+  renderUpdateEmailPassword() {
+    // If not Password authenticated, return a blank view...
+    const isPasswordAuth = AuthFirebaseApi.isCurrentUserPasswordAuthenticated();
+    if (!isPasswordAuth) { return <View />; }
+
+    // Otherwise, return the buttons...
+    return (
+      <View style={{flex: 1, alignSelf: "stretch"}}>
+        {this.renderListItem(this.onUpdateEmailPress, this.state.userData.email || "Update Email")}
+        <View style={{paddingTop: 10}} />
+        {this.renderListItem(this.onUpdatePasswordPress, "Update Password")}
+      </View>
+    );
+  }
+
   render() {
+    const isGuest = AuthFirebaseApi.isCurrentUserAnonymouslyAuthenticated();
+
     return (
       <ScrollView style={{backgroundColor: "#fff" }}>
         <KeyboardAvoidingView behavior="height" style={styles.container}>
@@ -107,9 +128,7 @@ export default class EditProfileScreen extends React.Component {
             }}
           />
         
-          {this.renderListItem(this.onUpdateEmailPress, this.state.userData.email || "Update Email")}
-          <View style={{paddingTop: 10}} />
-          {this.renderListItem(this.onUpdatePasswordPress, "Update Password")}
+          {this.renderUpdateEmailPassword()}
          
           <View style={{paddingTop: 20}} />
           <Button title="Logout" onPress={this.onLogoutPress} />
