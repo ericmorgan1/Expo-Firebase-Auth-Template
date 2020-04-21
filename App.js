@@ -43,7 +43,6 @@ export default class App extends React.Component {
         //const { getInitialState } = useLinking(containerRef);
         
         try {
-            SplashScreen.preventAutoHide();
             //this.setState({ initialNavigationState: await getInitialState() }); // Load our initial navigation state
             await Font.loadAsync({ ...Ionicons.font });             // Load fonts
         } catch (e) {
@@ -68,7 +67,12 @@ export default class App extends React.Component {
     render() {
         // Show AppLoading if not ready...
         if (this.isLoading()) {
-            return <AppLoading startAsync={this._loadResourcesAsync} onError={this._handleLoadingError} onFinish={this._handleFinishLoading} />
+            return <AppLoading 
+                startAsync={this._loadResourcesAsync} 
+                onError={this._handleLoadingError} 
+                onFinish={this._handleFinishLoading} 
+                autoHideSplash={false}
+            />
         }
         
         return <AppCore />; 
