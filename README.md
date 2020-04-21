@@ -31,3 +31,9 @@ User Authentication template using:
 ## Open Issues / Todo Items	
 * `EditProfileScreen.js` needs to unsubscribe from watching user data when logging out	
 * Implement a "Try as Guest" feature
+
+## Screenshots
+
+<img src="__demo/Login.PNG" class="img-fluid" alt="">
+<img src="__demo/Signup.PNG" class="img-fluid" alt="">
+<img src="__demo/ForgotPassword.PNG" class="img-fluid" alt="">
