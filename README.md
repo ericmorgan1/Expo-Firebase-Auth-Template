@@ -21,9 +21,9 @@ User Authentication template using:
 
 
 ### Template Setup	    Firebase Setup:
-1. Go to `/constants/ApiKeys.js` and add your Firebase config data
-   * Use `/constants/ApiKeys.demo.js` as a template
-   * Make sure to keep your API keys private (don't commit them to a public repo)
+1. Go to `/constants/ApiKeys.demo.js` and add your Firebase config data
+   a. Rename it to `/constants/ApiKeys.js`
+   b. Make sure to keep your API keys private (don't commit them to a public repo)
 2. `npm install`
 3. `expo start`
 
