@@ -37,3 +37,7 @@ User Authentication template using:
 <img src="__demo/Login.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
 <img src="__demo/Signup.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
 <img src="__demo/ResetPassword.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
+
+<img src="__demo/EditProfile.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
+<img src="__demo/UpdateEmail.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
+<img src="__demo/UpdatePassword.PNG" align="left" class="img-fluid" width="225" height="487" alt="">
