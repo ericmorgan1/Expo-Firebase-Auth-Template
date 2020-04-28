@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, ScrollView, View, Button } from 'react-native';
 
 export default class SettingsScreen extends React.Component {
 

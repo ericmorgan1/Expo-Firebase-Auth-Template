@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, ScrollView, Text, View } from 'react-native';
 
 export default class TestScreen extends React.Component {
     

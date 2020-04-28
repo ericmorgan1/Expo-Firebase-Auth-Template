@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Alert } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, ScrollView, View, Alert } from 'react-native';
 import { AuthFirebaseApi } from './../api';
 import { GuestLoginBanner } from './../components/auth';
 
